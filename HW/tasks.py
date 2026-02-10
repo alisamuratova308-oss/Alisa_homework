@@ -34,6 +34,3 @@ while True:
     else:
         print(koplika.hvatit_na_tzel())
 
-
-
-    
