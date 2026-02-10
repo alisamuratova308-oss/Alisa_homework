@@ -30,7 +30,30 @@ class Player:
             self.x += 1*self.speed
 
 #=======================================================
-
+class Programmer:
+    def __init__(self,name,grade="Junior"):
+        self.name = name
+        self.grabe= grade
+        self.time = 0
+        if self.grabe == "Junior":
+            self.rate = 10
+        elif self.grade == "Middle":
+            self.rate =15
+        elif self.grade == "Senior":
+            self.rate =20
+    def info(self):
+        return f"{self.name},{self.time},{self.rate}"
+    def grade_ap(self):
+        if self.grabe == "Junior":
+            self.grabe = "Middel"
+            self.rate = 15
+        elif self.grade == "Middle":
+            self.grabe = "Senior"
+            self.rate =20
+        elif self.grade == "Senior":
+            self.rate +=1
+    def work(self,time):
+        self.time += time
     
 
 
