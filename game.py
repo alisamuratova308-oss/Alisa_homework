@@ -54,7 +54,7 @@ class Programmer:
             self.rate +=1
     def work(self,time):
         self.time += time
-    
+
 
 
 
