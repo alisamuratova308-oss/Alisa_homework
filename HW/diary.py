@@ -3,7 +3,7 @@ class Diary:
         self.__grades = {}
 
     def add_grade(self, subject, grade):
-        if subject not in self.grades:  
+        if subject not in self.__grades:  
             self.__grades[subject] = []  
         self.__grades[subject].append(grade) 
         return f"{subject}, {grade}"
@@ -14,8 +14,8 @@ class Diary:
         return sum(oll_grades)/len(oll_grades)
     def get_bad_subjects(self):
         bad_subjects = []
-        for subject, grades in self.grades.items():
-            if grades and (sum(grades) / len(grades)) < 3.5:
+        for subject, grades in self.__grades.items():
+            if (sum(grades) / len(grades)) < 3.5:
                 bad_subjects.append(subject)
         return bad_subjects
     def reset_diary(self):
