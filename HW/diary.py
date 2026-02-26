@@ -10,7 +10,9 @@ class Diary:
     def get_average(self, subject):
         return sum(self.__grades[subject]) / len(self.__grades[subject])
     def get_all_average(self):
+        print(self.__grades)
         oll_grades = self.__grades.values()
+        print(oll_grades)
         return sum(oll_grades)/len(oll_grades)
     def get_bad_subjects(self):
         bad_subjects = []
@@ -47,6 +49,17 @@ while True:
         print(test.get_bad_subjects())
     elif u_input == "5":
         print(test.reset_diary())
+# my_diary = Diary()
+# my_diary.add_grade("Биология", 5)
+# my_diary.add_grade("Биология", 5)
+# my_diary.add_grade("Биология", 5)
+# my_diary.add_grade("Химия", 2)
+# my_diary.add_grade("Химия", 3)
+# print(my_diary.get_average("Биология"))
+# print(my_diary.get_average("Химия"))
+# print(my_diary.get_all_average())
+# print(my_diary.get_bad_subjects())1
+# my_diary.reset_diary()
 
 
 
