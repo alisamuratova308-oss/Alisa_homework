@@ -15,3 +15,8 @@ class Vector2D:
             return True
         else:
             return False
+test = Vector2D(6,9)
+print(test.__len__())
+print(test.__str__())
+print(test.__add__(4,9))
+print(test.__eq__(4,9))
