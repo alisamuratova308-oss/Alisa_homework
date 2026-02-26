@@ -12,8 +12,7 @@ class Diary:
     def get_all_average(self):
         print(self.__grades)
         oll_grades = self.__grades.values()
-        print(oll_grades)
-        return sum(oll_grades)/len(oll_grades)
+        return sum(*oll_grades)/len(*oll_grades)
     def get_bad_subjects(self):
         bad_subjects = []
         for subject, grades in self.__grades.items():
