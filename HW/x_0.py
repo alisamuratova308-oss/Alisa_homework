@@ -42,7 +42,12 @@ class Game(Plaers):
 {"|"+ "|".join(self.a3)  +"|"}
 {b3}
 '''
-
+    def break_game(self,name):
+        if name == "Выход":
+            self.a1 = [" "," "," "]
+            self.a2 = [" "," "," "]
+            self.a3 = [" "," "," "]
+            return "Поле отчищено"
 
 test = Game('Alisa','Aleks')
 # print(test.game_field(1,1,'Alisa'))  
@@ -51,8 +56,13 @@ while True:
     # if u_input == "выход":
     #     break
     # elif u_input == "играть":
-    name = input('Введите имя игрока: ')
-    y = int(input('Введите ряд (число от одного до трёх): '))
-    x = int(input('Введите ячейку (число от одного до трёх): '))
-    print(test.game_field(x,y,name))
+    name = input('Введите имя игрока или выход: ')
+    if name == "выход":
+        print(test.break_game(name))
+    else:
+        y = int(input('Введите ряд (число от одного до трёх): '))
+        x = int(input('Введите ячейку (число от одного до трёх): '))
+        print(test.game_field(x,y,name))
+    
+
 
