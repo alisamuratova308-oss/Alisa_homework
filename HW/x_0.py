@@ -43,26 +43,37 @@ class Game(Plaers):
 {b3}
 '''
     def break_game(self,name):
-        if name == "Выход":
+        if name == "отчистка поля":
             self.a1 = [" "," "," "]
             self.a2 = [" "," "," "]
             self.a3 = [" "," "," "]
             return "Поле отчищено"
+    def vin(self):
+        if self.a1 == ["X","X","X"] or self.a2 == ["X","X","X"] or self.a3 == ["X","X","X"]:
+            return f"Победил игрок {self.player1}"
+        elif self.a1 == ["O","O","O"] or self.a2 == ["O","O","O"] or self.a3 == ["O","O","O"]:
+            return f"Победил игрок {self.player2}"
+        for i in range(3):
+            if self.a1[i] == self.a2[i] == self.a3[i] == "X":
+                return f"Победил игрок {self.player1}"
+            if self.a1[i] == self.a2[i] == self.a3[i] == "O":
+                return f"Победил игрок {self.player2}"
+        if (self.a1[0] == "X" and self.a2[1] == "X" and self.a3[2] == "X") or (self.a1[2] == "X" and self.a2[1] == "X" and self.a3[0] == "X"):
+            return f"Победил игрок {self.player1}"
+        if (self.a1[0] == "O" and self.a2[1] == "O" and self.a3[2] == "O") or (self.a1[2] == "O" and self.a2[1] == "O" and self.a3[0] == "O"):
+            return f"Победил игрок {self.player2}"
 
 test = Game('Alisa','Aleks')
-# print(test.game_field(1,1,'Alisa'))  
 while True:
-    # u_input = input("Введите играть или выход")
-    # if u_input == "выход":
-    #     break
-    # elif u_input == "играть":
-    name = input('Введите имя игрока или выход: ')
-    if name == "выход":
+    name = input('Введите имя игрока или отчистка поля: ')
+    if name == "отчистка поля":
         print(test.break_game(name))
     else:
         y = int(input('Введите ряд (число от одного до трёх): '))
         x = int(input('Введите ячейку (число от одного до трёх): '))
         print(test.game_field(x,y,name))
+        print(test.vin())
+        
     
 
 

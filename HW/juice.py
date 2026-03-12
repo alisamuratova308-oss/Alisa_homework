@@ -13,18 +13,19 @@ class Juice:
         if j_name in self.juices:
             self.juices[j_name] -= amount
             self.total_volume -= amount
-    def get_concentration(self, juice_name):
+    def get_concentration_f(self):
         if self.total_volume == 0:
-            return 0.0 
-        juice_amount = self.juices.get(juice_name, 0)
+            return 0
+        juice_f = next(iter(self.juices))
+        juice_amount = self.juices[juice_f]
         concentration = juice_amount / self.total_volume
         return concentration
 t = Juice()
-t = Juice()
 t.add("яблочный", 200)
-print(f"Концентрация яблочного сока: {t.get_concentration('яблочный')}") 
+print(f"Концентрация первого сока: {t.get_concentration_f()}") 
 t.add("банановый", 50)  
-print(f"Концентрация яблочного сока: {t.get_concentration('яблочный')}") 
+print(f"Концентрация первого сока: {t.get_concentration_f()}") 
 t.pour_out(50, "яблочный")
-print(f"Концентрация яблочного сока: {t.get_concentration('яблочный'):}") 
-print(f"Концентрация бананового сока: {t.get_concentration('банановый')}")  
+print(f"Концентрация первого сока: {t.get_concentration_f()}") 
+
+
