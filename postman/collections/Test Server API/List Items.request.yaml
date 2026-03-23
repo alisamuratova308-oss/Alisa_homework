@@ -1,0 +1,26 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/items'
+order: 2000
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+
+      pm.test("Content-Type is JSON", function () {
+          pm.response.to.have.header("Content-Type", /application\/json/);
+      });
+
+      pm.test("Response has items array", function () {
+          const jsonData = pm.response.json();
+          pm.expect(jsonData).to.have.property("items");
+          pm.expect(jsonData.items).to.be.an("array");
+      });
+
+      pm.test("Response has count property", function () {
+          const jsonData = pm.response.json();
+          pm.expect(jsonData).to.have.property("count");
+      });

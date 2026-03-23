@@ -1,0 +1,7 @@
+$kind: collection
+name: Test Server API
+description: API collection for testing the FastAPI server with health check and item management endpoints.
+variables:
+  - key: baseUrl
+    value: 'http://localhost:8000'
+    description: Base URL for the Test Server API
