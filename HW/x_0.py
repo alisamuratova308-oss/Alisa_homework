@@ -1,3 +1,4 @@
+n = 0
 class Plaers:
     
     def __init__(self, player1, player2):
@@ -62,6 +63,22 @@ class Game(Plaers):
             return f"Победил игрок {self.player1}"
         if (self.a1[0] == "O" and self.a2[1] == "O" and self.a3[2] == "O") or (self.a1[2] == "O" and self.a2[1] == "O" and self.a3[0] == "O"):
             return f"Победил игрок {self.player2}"
+    def proverka(self,name):
+        if name != self.player1 and name != self.player2:
+            print("Ошибка")
+            return False 
+        if n % 2 == 0:  
+            if name != self.player1:
+                print(f"Ход игрока {self.player1}")
+                return False
+        elif n % 2 == 1: 
+            if name != self.player2:
+                print(f"Ход игрока {self.player2}")
+                return False 
+        else: 
+            return True  
+
+
 
 test = Game('Alisa','Aleks')
 while True:
@@ -73,7 +90,8 @@ while True:
         x = int(input('Введите ячейку (число от одного до трёх): '))
         print(test.game_field(x,y,name))
         print(test.vin())
-        
+        n += 1
+
     
 
 
