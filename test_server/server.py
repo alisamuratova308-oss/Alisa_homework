@@ -10,7 +10,7 @@ class Item(BaseModel):
     name: str
     value: int = 0
 
-# 1. Просто проверка
+# 1 Просто проверка
 @app.get("/")
 def root():
     return {"message": "ok"}
